@@ -1,0 +1,284 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Styles - Online Shopping</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            <a href="index.html">Styles</a>
+        </div>
+
+        <div class="location">
+            📍 <span>Deliver to<br><b>India</b></span>
+        </div>
+
+        <div class="search-box">
+            <select id="category">
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Fashion</option>
+                <option>Footwear</option>
+                <option>Accessories</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Styles"
+            >
+
+            <button onclick="searchProducts()">🔍</button>
+        </div>
+
+        <div class="account">
+            <small>Hello, Sign in</small>
+            <br>
+            <b>Account & Lists</b>
+        </div>
+
+        <div class="orders">
+            <small>Returns</small>
+            <br>
+            <b>& Orders</b>
+        </div>
+
+        <div class="cart">
+            <a href="cart.html">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <div>☰ All</div>
+
+        <a href="products.html">Today's Deals</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Footwear</a>
+        <a href="products.html">Best Sellers</a>
+        <a href="products.html">New Arrivals</a>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Welcome to Styles</h1>
+
+            <h2>Everything You Love. All in One Place.</h2>
+
+            <p>
+                Shop electronics, fashion, footwear,
+                accessories and more.
+            </p>
+
+            <a href="products.html" class="shop-btn">
+                Shop Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORY SECTION -->
+    <section class="section">
+
+        <h2>Shop by Category</h2>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                <img src="images/mobile.jpg" alt="Mobiles">
+                <h3>Mobiles & Electronics</h3>
+                <a href="products.html">Shop Now →</a>
+            </div>
+
+            <div class="category-card">
+                <img src="images/clothes.jpg" alt="Clothes">
+                <h3>Clothing</h3>
+                <a href="products.html">Explore →</a>
+            </div>
+
+            <div class="category-card">
+                <img src="images/shoes.jpg" alt="Shoes">
+                <h3>Footwear</h3>
+                <a href="products.html">Explore →</a>
+            </div>
+
+            <div class="category-card">
+                <img src="images/watch.jpg" alt="Watches">
+                <h3>Watches & Accessories</h3>
+                <a href="products.html">Shop Now →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section">
+
+        <h2>Popular Products</h2>
+
+        <div class="product-container">
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card">
+
+                <img src="images/mobile.jpg" alt="Smartphone">
+
+                <h3>Smartphone Pro</h3>
+
+                <p class="rating">⭐⭐⭐⭐⭐</p>
+
+                <p class="price">₹29,999</p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Smartphone Pro', 29999, 'images/mobile.jpg')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card">
+
+                <img src="images/laptop.jpg" alt="Laptop">
+
+                <h3>Ultra Laptop</h3>
+
+                <p class="rating">⭐⭐⭐⭐</p>
+
+                <p class="price">₹54,999</p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Ultra Laptop', 54999, 'images/laptop.jpg')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card">
+
+                <img src="images/shoes.jpg" alt="Shoes">
+
+                <h3>Sports Running Shoes</h3>
+
+                <p class="rating">⭐⭐⭐⭐⭐</p>
+
+                <p class="price">₹1,999</p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Sports Running Shoes', 1999, 'images/shoes.jpg')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card">
+
+                <img src="images/headphones.jpg" alt="Headphones">
+
+                <h3>Wireless Headphones</h3>
+
+                <p class="rating">⭐⭐⭐⭐</p>
+
+                <p class="price">₹2,499</p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Wireless Headphones', 2499, 'images/headphones.jpg')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OFFER BANNER -->
+    <section class="offer">
+
+        <h2>🔥 Big Styles Sale</h2>
+
+        <p>Get exciting discounts on selected products.</p>
+
+        <a href="products.html" class="shop-btn">
+            View Deals
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Styles</h3>
+                <p>Your one-stop online shopping destination.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html">Orders</a>
+            </div>
+
+            <div>
+                <h3>Customer Service</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Styles. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
+```

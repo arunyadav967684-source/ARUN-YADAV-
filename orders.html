@@ -1,0 +1,549 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders - Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .orders-page {
+            background: #f5f5f5;
+            min-height: 75vh;
+            padding: 35px 20px;
+        }
+
+        .orders-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .orders-title {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .orders-title h1 {
+            margin: 0;
+            color: #222;
+        }
+
+        .orders-title p {
+            color: #777;
+            margin-bottom: 0;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .order-header {
+            background: #fafafa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .order-header strong {
+            color: #333;
+        }
+
+        .order-date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .order-body {
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .product-image {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            border: 1px solid #eee;
+            border-radius: 6px;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-details h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .product-details p {
+            margin: 6px 0;
+            color: #666;
+        }
+
+        .product-price {
+            font-size: 19px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .status {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .delivered {
+            color: #2e7d32;
+        }
+
+        .shipping {
+            color: #f57c00;
+        }
+
+        .cancelled {
+            color: #d32f2f;
+        }
+
+        .order-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .order-btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .view-btn {
+            background: #2874f0;
+            color: white;
+        }
+
+        .cancel-btn {
+            background: white;
+            color: #d32f2f;
+            border: 1px solid #d32f2f;
+        }
+
+        .order-btn:hover {
+            opacity: 0.9;
+        }
+
+        .empty-orders {
+            background: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .empty-orders h2 {
+            color: #333;
+        }
+
+        .empty-orders p {
+            color: #777;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #2874f0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 700px) {
+
+            .order-body {
+                flex-direction: column;
+            }
+
+            .product-image {
+                width: 100%;
+                height: 180px;
+            }
+
+            .order-actions {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .order-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+
+            <div class="logo">
+                <a href="index.html">Styles</a>
+            </div>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for products..."
+                >
+                <button type="button" onclick="searchProducts()">🔍</button>
+            </div>
+
+            <div class="header-links">
+                <a href="login.html">Login</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="products.html">Mobiles</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Clothing</a>
+        <a href="products.html">Footwear</a>
+        <a href="orders.html">My Orders</a>
+    </nav>
+
+    <!-- Orders Page -->
+    <main class="orders-page">
+
+        <div class="orders-container">
+
+            <!-- Page Heading -->
+            <div class="orders-title">
+                <h1>My Orders</h1>
+                <p>View and manage your recent orders</p>
+            </div>
+
+            <!-- Order 1 -->
+            <div class="order-card">
+
+                <div class="order-header">
+                    <div>
+                        <strong>Order ID: STY10001</strong>
+                    </div>
+
+                    <div class="order-date">
+                        Ordered on: 10 September 2026
+                    </div>
+                </div>
+
+                <div class="order-body">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80"
+                        alt="Smartphone"
+                    >
+
+                    <div class="product-details">
+
+                        <h2>Smartphone Pro 5G</h2>
+
+                        <p>Storage: 128 GB</p>
+
+                        <p>Color: Black</p>
+
+                        <p>Quantity: 1</p>
+
+                        <p class="product-price">₹29,999</p>
+
+                        <p class="status delivered">
+                            ✓ Delivered
+                        </p>
+
+                        <p>
+                            Delivered on 13 September 2026
+                        </p>
+
+                    </div>
+
+                    <div class="order-actions">
+
+                        <button
+                            class="order-btn view-btn"
+                            onclick="viewOrder('STY10001')">
+                            View Order
+                        </button>
+
+                        <button
+                            class="order-btn cancel-btn"
+                            onclick="cancelOrder('STY10001')">
+                            Cancel Order
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Order 2 -->
+            <div class="order-card">
+
+                <div class="order-header">
+
+                    <div>
+                        <strong>Order ID: STY10002</strong>
+                    </div>
+
+                    <div class="order-date">
+                        Ordered on: 8 September 2026
+                    </div>
+
+                </div>
+
+                <div class="order-body">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80"
+                        alt="Wireless Headphones"
+                    >
+
+                    <div class="product-details">
+
+                        <h2>Wireless Headphones</h2>
+
+                        <p>Color: Black</p>
+
+                        <p>Quantity: 1</p>
+
+                        <p class="product-price">₹2,499</p>
+
+                        <p class="status shipping">
+                            🚚 Out for Delivery
+                        </p>
+
+                        <p>
+                            Expected delivery: 15 September 2026
+                        </p>
+
+                    </div>
+
+                    <div class="order-actions">
+
+                        <button
+                            class="order-btn view-btn"
+                            onclick="viewOrder('STY10002')">
+                            View Order
+                        </button>
+
+                        <button
+                            class="order-btn cancel-btn"
+                            onclick="cancelOrder('STY10002')">
+                            Cancel Order
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Order 3 -->
+            <div class="order-card">
+
+                <div class="order-header">
+
+                    <div>
+                        <strong>Order ID: STY10003</strong>
+                    </div>
+
+                    <div class="order-date">
+                        Ordered on: 5 September 2026
+                    </div>
+
+                </div>
+
+                <div class="order-body">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
+                        alt="Smart Watch"
+                    >
+
+                    <div class="product-details">
+
+                        <h2>Smart Watch</h2>
+
+                        <p>Color: Silver</p>
+
+                        <p>Quantity: 1</p>
+
+                        <p class="product-price">₹2,499</p>
+
+                        <p class="status delivered">
+                            ✓ Delivered
+                        </p>
+
+                        <p>
+                            Delivered on 9 September 2026
+                        </p>
+
+                    </div>
+
+                    <div class="order-actions">
+
+                        <button
+                            class="order-btn view-btn"
+                            onclick="viewOrder('STY10003')">
+                            View Order
+                        </button>
+
+                        <button
+                            class="order-btn cancel-btn"
+                            onclick="cancelOrder('STY10003')">
+                            Cancel Order
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Empty Orders Message -->
+            <div class="empty-orders" id="emptyOrders">
+
+                <h2>📦 No Orders Yet</h2>
+
+                <p>
+                    You haven't placed any orders yet.
+                </p>
+
+                <a href="products.html" class="shop-btn">
+                    Start Shopping
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Styles</h3>
+                <p>Your one-stop online shopping destination.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a><br>
+                <a href="products.html">Products</a><br>
+                <a href="cart.html">Cart</a><br>
+                <a href="orders.html">My Orders</a>
+            </div>
+
+            <div>
+                <h3>Customer Service</h3>
+                <p>Help & Support</p>
+                <p>Returns</p>
+                <p>Contact Us</p>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Styles. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function viewOrder(orderId) {
+
+            alert(
+                "Order Details\n\n" +
+                "Order ID: " + orderId +
+                "\n\nYour order details will be displayed here."
+            );
+        }
+
+
+        function cancelOrder(orderId) {
+
+            const confirmation = confirm(
+                "Are you sure you want to cancel order " +
+                orderId + "?"
+            );
+
+            if (confirmation) {
+
+                alert(
+                    "Order " +
+                    orderId +
+                    " cancellation request submitted."
+                );
+            }
+        }
+
+
+        function searchProducts() {
+
+            const search =
+                document.getElementById("searchInput").value.trim();
+
+            if (search !== "") {
+
+                window.location.href =
+                    "products.html?search=" +
+                    encodeURIComponent(search);
+
+            } else {
+
+                window.location.href = "products.html";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+```
+
+This `orders.html` is ready to place in the same project folder as your other pages. It uses the existing **Styles** header, navigation, footer, and product-page structure.
+
+Next, a good file to create is **`cart.html`**, so the **Add to Cart → Cart → Checkout → Orders** flow works together.

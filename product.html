@@ -1,0 +1,878 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="index.html">Styles</a>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="location">
+            📍
+            <span>
+                Deliver to<br>
+                <b>India</b>
+            </span>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+
+            <select>
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Fashion</option>
+                <option>Footwear</option>
+                <option>Accessories</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Styles"
+            >
+
+            <button onclick="searchProducts()">🔍</button>
+
+        </div>
+
+        <!-- ACCOUNT -->
+        <div class="account">
+            <small>Hello,</small>
+            <br>
+            <b>
+                <a href="login.html">Sign in</a>
+            </b>
+        </div>
+
+        <!-- ORDERS -->
+        <div class="orders">
+            <small>Returns</small>
+            <br>
+            <b>
+                <a href="orders.html">& Orders</a>
+            </b>
+        </div>
+
+        <!-- CART -->
+        <div class="cart">
+            <a href="cart.html">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <a href="index.html">☰ All</a>
+
+        <a href="products.html">
+            Today's Deals
+        </a>
+
+        <a href="products.html">
+            Best Sellers
+        </a>
+
+        <a href="products.html">
+            Electronics
+        </a>
+
+        <a href="products.html">
+            Fashion
+        </a>
+
+        <a href="products.html">
+            Footwear
+        </a>
+
+        <a href="products.html">
+            New Arrivals
+        </a>
+
+    </nav>
+
+
+    <!-- ================= BREADCRUMB ================= -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">Home</a>
+        /
+        <a href="products.html">Products</a>
+        /
+        Electronics /
+        Smartphone Pro
+
+    </div>
+
+
+    <!-- ================= PRODUCT DETAILS ================= -->
+
+    <main class="product-details">
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-image-section">
+
+            <div class="thumbnail-container">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+                    class="thumbnail"
+                    onclick="changeImage(this.src)"
+                    alt="Smartphone"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+                    class="thumbnail"
+                    onclick="changeImage(this.src)"
+                    alt="Smartphone"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+                    class="thumbnail"
+                    onclick="changeImage(this.src)"
+                    alt="Smartphone"
+                >
+
+            </div>
+
+
+            <div class="main-product-image">
+
+                <img
+                    id="mainProductImage"
+                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
+                    alt="Smartphone Pro"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-info">
+
+            <h1>
+                Smartphone Pro 5G
+            </h1>
+
+            <p class="brand">
+                Brand: <b>Styles Tech</b>
+            </p>
+
+
+            <!-- RATING -->
+
+            <div class="product-rating">
+
+                <span class="rating-box">
+                    4.5 ⭐
+                </span>
+
+                <span>
+                    2,450 Ratings & 350 Reviews
+                </span>
+
+            </div>
+
+
+            <hr>
+
+
+            <!-- PRICE -->
+
+            <p class="deal">
+                🔥 Limited Time Deal
+            </p>
+
+            <div class="product-price">
+
+                <span class="big-price">
+                    ₹29,999
+                </span>
+
+                <span class="old-price">
+                    ₹37,999
+                </span>
+
+                <span class="discount-text">
+                    21% off
+                </span>
+
+            </div>
+
+
+            <p>
+                Inclusive of all taxes
+            </p>
+
+
+            <!-- OFFERS -->
+
+            <div class="offers">
+
+                <h3>Available Offers</h3>
+
+                <p>
+                    🏷️ <b>Bank Offer:</b>
+                    Get extra ₹1,000 off on selected bank cards.
+                </p>
+
+                <p>
+                    💳 <b>Payment Offer:</b>
+                    Get additional discount on eligible payments.
+                </p>
+
+                <p>
+                    🚚 <b>Free Delivery:</b>
+                    Free delivery available on this product.
+                </p>
+
+            </div>
+
+
+            <!-- COLOR -->
+
+            <div class="product-option">
+
+                <h3>Color</h3>
+
+                <button class="option-button">
+                    Midnight Black
+                </button>
+
+                <button class="option-button">
+                    Silver
+                </button>
+
+                <button class="option-button">
+                    Blue
+                </button>
+
+            </div>
+
+
+            <!-- STORAGE -->
+
+            <div class="product-option">
+
+                <h3>Storage</h3>
+
+                <button class="option-button">
+                    128 GB
+                </button>
+
+                <button class="option-button">
+                    256 GB
+                </button>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-section">
+
+                <h3>Quantity</h3>
+
+                <button onclick="decreaseQuantity()">
+                    −
+                </button>
+
+                <span id="quantity">
+                    1
+                </span>
+
+                <button onclick="increaseQuantity()">
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="product-buttons">
+
+                <button
+                    class="add-cart-button"
+                    onclick="addProductToCart()"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-button"
+                    onclick="buyNow()"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+            <!-- DELIVERY -->
+
+            <div class="delivery">
+
+                <h3>🚚 Delivery Information</h3>
+
+                <p>
+                    Enter your location to check delivery
+                    availability.
+                </p>
+
+                <div class="delivery-input">
+
+                    <input
+                        type="text"
+                        placeholder="Enter PIN code"
+                    >
+
+                    <button>
+                        Check
+                    </button>
+
+                </div>
+
+                <p>
+                    ✓ Free delivery<br>
+                    ✓ Secure packaging<br>
+                    ✓ Easy returns
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= PRODUCT DESCRIPTION ================= -->
+
+    <section class="product-description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            The Smartphone Pro is designed for everyday
+            performance, entertainment and photography.
+            It features a powerful processor, 5G connectivity,
+            a high-quality display and a long-lasting battery.
+        </p>
+
+
+        <h3>Key Features</h3>
+
+        <ul>
+
+            <li>
+                5G connectivity
+            </li>
+
+            <li>
+                128GB internal storage
+            </li>
+
+            <li>
+                High-resolution display
+            </li>
+
+            <li>
+                Dual camera system
+            </li>
+
+            <li>
+                Fast charging
+            </li>
+
+            <li>
+                Long-lasting battery
+            </li>
+
+            <li>
+                Modern premium design
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- ================= SPECIFICATIONS ================= -->
+
+    <section class="specifications">
+
+        <h2>Technical Specifications</h2>
+
+        <table>
+
+            <tr>
+                <th>Brand</th>
+                <td>Styles Tech</td>
+            </tr>
+
+            <tr>
+                <th>Model</th>
+                <td>Smartphone Pro 5G</td>
+            </tr>
+
+            <tr>
+                <th>Display</th>
+                <td>6.5 inch Full HD Display</td>
+            </tr>
+
+            <tr>
+                <th>RAM</th>
+                <td>8 GB</td>
+            </tr>
+
+            <tr>
+                <th>Storage</th>
+                <td>128 GB</td>
+            </tr>
+
+            <tr>
+                <th>Camera</th>
+                <td>50MP Dual Camera</td>
+            </tr>
+
+            <tr>
+                <th>Battery</th>
+                <td>5000 mAh</td>
+            </tr>
+
+            <tr>
+                <th>Connectivity</th>
+                <td>5G, Wi-Fi, Bluetooth</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <!-- ================= CUSTOMER REVIEWS ================= -->
+
+    <section class="reviews">
+
+        <h2>Customer Reviews</h2>
+
+
+        <div class="review">
+
+            <h3>⭐⭐⭐⭐⭐ Excellent Product</h3>
+
+            <p>
+                The phone looks great and works smoothly.
+                Delivery was also fast.
+            </p>
+
+            <small>
+                — Styles Customer
+            </small>
+
+        </div>
+
+
+        <div class="review">
+
+            <h3>⭐⭐⭐⭐ Very Good</h3>
+
+            <p>
+                Good display, battery and camera.
+                Happy with the purchase.
+            </p>
+
+            <small>
+                — Verified Customer
+            </small>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RELATED PRODUCTS ================= -->
+
+    <section class="section">
+
+        <h2>Customers Also Viewed</h2>
+
+        <div class="product-container">
+
+
+            <!-- RELATED 1 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+                    alt="Headphones"
+                >
+
+                <h3>
+                    Wireless Headphones
+                </h3>
+
+                <p class="rating">
+                    ⭐⭐⭐⭐☆
+                </p>
+
+                <p class="price">
+                    ₹2,499
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart(
+                        'Wireless Headphones',
+                        2499,
+                        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80'
+                    )"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- RELATED 2 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+                    alt="Smart Watch"
+                >
+
+                <h3>
+                    Smart Watch
+                </h3>
+
+                <p class="rating">
+                    ⭐⭐⭐⭐⭐
+                </p>
+
+                <p class="price">
+                    ₹2,499
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart(
+                        'Smart Watch',
+                        2499,
+                        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80'
+                    )"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- RELATED 3 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80"
+                    alt="Sneakers"
+                >
+
+                <h3>
+                    Classic Sneakers
+                </h3>
+
+                <p class="rating">
+                    ⭐⭐⭐⭐⭐
+                </p>
+
+                <p class="price">
+                    ₹2,299
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart(
+                        'Classic Sneakers',
+                        2299,
+                        'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80'
+                    )"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+
+            <div>
+
+                <h3>Styles</h3>
+
+                <p>
+                    Your one-stop online shopping
+                    destination.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="cart.html">
+                    Cart
+                </a>
+
+                <a href="orders.html">
+                    Orders
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Customer Service</h3>
+
+                <a href="#">
+                    Help Center
+                </a>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Styles. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/script.js"></script>
+
+
+    <script>
+
+        /* PRODUCT QUANTITY */
+
+        let quantity = 1;
+
+
+        function increaseQuantity() {
+
+            quantity++;
+
+            document.getElementById("quantity").innerText =
+                quantity;
+
+        }
+
+
+        function decreaseQuantity() {
+
+            if (quantity > 1) {
+
+                quantity--;
+
+                document.getElementById("quantity").innerText =
+                    quantity;
+
+            }
+
+        }
+
+
+        /* CHANGE PRODUCT IMAGE */
+
+        function changeImage(image) {
+
+            document.getElementById(
+                "mainProductImage"
+            ).src = image;
+
+        }
+
+
+        /* ADD PRODUCT TO CART */
+
+        function addProductToCart() {
+
+            const product = {
+
+                name: "Smartphone Pro 5G",
+
+                price: 29999,
+
+                image:
+                    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+
+                quantity: quantity
+
+            };
+
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+
+            const existingProduct =
+                cart.find(
+                    item =>
+                        item.name === product.name
+                );
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity += quantity;
+
+            } else {
+
+                cart.push(product);
+
+            }
+
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+
+            updateCartCount();
+
+
+            alert(
+                "Smartphone Pro added to your cart!"
+            );
+
+        }
+
+
+        /* BUY NOW */
+
+        function buyNow() {
+
+            addProductToCart();
+
+            window.location.href =
+                "checkout.html";
+
+        }
+
+
+        /* CART COUNT */
+
+        function updateCartCount() {
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+
+            let count = cart.reduce(
+                (total, item) =>
+                    total + item.quantity,
+                0
+            );
+
+
+            const cartCount =
+                document.getElementById(
+                    "cartCount"
+                );
+
+
+            if (cartCount) {
+
+                cartCount.innerText =
+                    count;
+
+            }
+
+        }
+
+
+        updateCartCount();
+
+    </script>
+
+</body>
+
+</html>
+```

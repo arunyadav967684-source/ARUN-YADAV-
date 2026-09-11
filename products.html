@@ -1,0 +1,694 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="index.html">Styles</a>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="location">
+            📍
+            <span>
+                Deliver to<br>
+                <b>India</b>
+            </span>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+
+            <select id="categoryFilter">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="footwear">Footwear</option>
+                <option value="accessories">Accessories</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                onkeyup="searchProducts()"
+            >
+
+            <button onclick="searchProducts()">🔍</button>
+
+        </div>
+
+        <!-- ACCOUNT -->
+        <div class="account">
+            <small>Hello,</small>
+            <br>
+            <b><a href="login.html">Sign in</a></b>
+        </div>
+
+        <!-- ORDERS -->
+        <div class="orders">
+            <small>Returns</small>
+            <br>
+            <b><a href="orders.html">& Orders</a></b>
+        </div>
+
+        <!-- CART -->
+        <div class="cart">
+            <a href="cart.html">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+
+        <a href="index.html">☰ All</a>
+        <a href="products.html">Today's Deals</a>
+        <a href="products.html">Best Sellers</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Footwear</a>
+        <a href="products.html">New Arrivals</a>
+
+    </nav>
+
+
+    <!-- PAGE TITLE -->
+    <section class="products-heading">
+
+        <h1>All Products</h1>
+
+        <p>
+            Explore the latest products at Styles
+        </p>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="products-layout">
+
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h3>Categories</h3>
+
+            <label>
+                <input
+                    type="radio"
+                    name="sideCategory"
+                    value="all"
+                    checked
+                    onclick="filterCategory('all')"
+                >
+                All Products
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="sideCategory"
+                    value="electronics"
+                    onclick="filterCategory('electronics')"
+                >
+                Electronics
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="sideCategory"
+                    value="fashion"
+                    onclick="filterCategory('fashion')"
+                >
+                Fashion
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="sideCategory"
+                    value="footwear"
+                    onclick="filterCategory('footwear')"
+                >
+                Footwear
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="sideCategory"
+                    value="accessories"
+                    onclick="filterCategory('accessories')"
+                >
+                Accessories
+            </label>
+
+
+            <hr>
+
+
+            <h3>Price</h3>
+
+            <label>
+                <input type="checkbox">
+                Under ₹1,000
+            </label>
+
+            <label>
+                <input type="checkbox">
+                ₹1,000 - ₹5,000
+            </label>
+
+            <label>
+                <input type="checkbox">
+                ₹5,000 - ₹20,000
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Above ₹20,000
+            </label>
+
+
+            <hr>
+
+
+            <h3>Customer Rating</h3>
+
+            <label>⭐⭐⭐⭐⭐</label>
+            <label>⭐⭐⭐⭐ & above</label>
+            <label>⭐⭐⭐ & above</label>
+
+        </aside>
+
+
+        <!-- PRODUCTS -->
+        <main class="products-section">
+
+            <div class="products-top">
+
+                <h2>Featured Products</h2>
+
+                <select id="sortProducts" onchange="sortProducts()">
+
+                    <option value="default">
+                        Sort By: Featured
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PRODUCT GRID -->
+            <div class="product-container" id="productContainer">
+
+
+                <!-- PRODUCT 1 -->
+                <div
+                    class="product-card"
+                    data-category="electronics"
+                    data-name="Smartphone Pro"
+                    data-price="29999"
+                >
+
+                    <span class="discount">
+                        20% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+                        alt="Smartphone"
+                    >
+
+                    <h3>Smartphone Pro</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                        <span>(245)</span>
+                    </p>
+
+                    <p>
+                        128GB Storage | 5G | Dual Camera
+                    </p>
+
+                    <p class="price">
+                        ₹29,999
+                    </p>
+
+                    <p class="old-price">
+                        ₹37,999
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Smartphone Pro',
+                            29999,
+                            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+                <div
+                    class="product-card"
+                    data-category="electronics"
+                    data-name="Ultra Laptop"
+                    data-price="54999"
+                >
+
+                    <span class="discount">
+                        15% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+                        alt="Laptop"
+                    >
+
+                    <h3>Ultra Laptop</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                        <span>(180)</span>
+                    </p>
+
+                    <p>
+                        16GB RAM | 512GB SSD | Intel Processor
+                    </p>
+
+                    <p class="price">
+                        ₹54,999
+                    </p>
+
+                    <p class="old-price">
+                        ₹64,999
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Ultra Laptop',
+                            54999,
+                            'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+                <div
+                    class="product-card"
+                    data-category="footwear"
+                    data-name="Sports Running Shoes"
+                    data-price="1999"
+                >
+
+                    <span class="discount">
+                        30% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+                        alt="Running Shoes"
+                    >
+
+                    <h3>Sports Running Shoes</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                        <span>(520)</span>
+                    </p>
+
+                    <p>
+                        Lightweight | Comfortable | Sports
+                    </p>
+
+                    <p class="price">
+                        ₹1,999
+                    </p>
+
+                    <p class="old-price">
+                        ₹2,999
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Sports Running Shoes',
+                            1999,
+                            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+                <div
+                    class="product-card"
+                    data-category="fashion"
+                    data-name="Casual Shirt"
+                    data-price="1299"
+                >
+
+                    <span class="discount">
+                        25% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80"
+                        alt="Casual Shirt"
+                    >
+
+                    <h3>Premium Casual Shirt</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                        <span>(320)</span>
+                    </p>
+
+                    <p>
+                        Cotton | Comfortable | Casual Wear
+                    </p>
+
+                    <p class="price">
+                        ₹1,299
+                    </p>
+
+                    <p class="old-price">
+                        ₹1,699
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Premium Casual Shirt',
+                            1299,
+                            'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 5 -->
+                <div
+                    class="product-card"
+                    data-category="accessories"
+                    data-name="Smart Watch"
+                    data-price="2499"
+                >
+
+                    <span class="discount">
+                        35% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+                        alt="Smart Watch"
+                    >
+
+                    <h3>Smart Watch</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                        <span>(410)</span>
+                    </p>
+
+                    <p>
+                        Fitness Tracking | Bluetooth | Waterproof
+                    </p>
+
+                    <p class="price">
+                        ₹2,499
+                    </p>
+
+                    <p class="old-price">
+                        ₹3,999
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Smart Watch',
+                            2499,
+                            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 6 -->
+                <div
+                    class="product-card"
+                    data-category="electronics"
+                    data-name="Wireless Headphones"
+                    data-price="2499"
+                >
+
+                    <span class="discount">
+                        40% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+                        alt="Headphones"
+                    >
+
+                    <h3>Wireless Headphones</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                        <span>(290)</span>
+                    </p>
+
+                    <p>
+                        Bluetooth | Noise Cancellation | 30H Battery
+                    </p>
+
+                    <p class="price">
+                        ₹2,499
+                    </p>
+
+                    <p class="old-price">
+                        ₹4,199
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Wireless Headphones',
+                            2499,
+                            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 7 -->
+                <div
+                    class="product-card"
+                    data-category="fashion"
+                    data-name="Denim Jacket"
+                    data-price="2499"
+                >
+
+                    <span class="discount">
+                        20% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80"
+                        alt="Denim Jacket"
+                    >
+
+                    <h3>Classic Denim Jacket</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐☆
+                        <span>(150)</span>
+                    </p>
+
+                    <p>
+                        Denim | Casual | Regular Fit
+                    </p>
+
+                    <p class="price">
+                        ₹2,499
+                    </p>
+
+                    <p class="old-price">
+                        ₹3,199
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Classic Denim Jacket',
+                            2499,
+                            'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 8 -->
+                <div
+                    class="product-card"
+                    data-category="footwear"
+                    data-name="Sneakers"
+                    data-price="2299"
+                >
+
+                    <span class="discount">
+                        25% OFF
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80"
+                        alt="Sneakers"
+                    >
+
+                    <h3>Classic Sneakers</h3>
+
+                    <p class="rating">
+                        ⭐⭐⭐⭐⭐
+                        <span>(375)</span>
+                    </p>
+
+                    <p>
+                        Casual | Comfortable | Everyday Wear
+                    </p>
+
+                    <p class="price">
+                        ₹2,299
+                    </p>
+
+                    <p class="old-price">
+                        ₹3,099
+                    </p>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart(
+                            'Classic Sneakers',
+                            2299,
+                            'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80'
+                        )"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Styles</h3>
+
+                <p>
+                    Your one-stop destination for
+                    fashion, electronics and more.
+                </p>
+            </div>
+
+
+            <div>
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html">Orders</a>
+            </div>
+
+
+            <div>
+                <h3>Customer Service</h3>
+
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Styles. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
+```

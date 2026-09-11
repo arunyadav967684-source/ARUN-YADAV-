@@ -1,0 +1,334 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .login-section {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .login-logo h1 {
+            color: #2874f0;
+            font-size: 35px;
+            margin-bottom: 5px;
+        }
+
+        .login-logo p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2874f0;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .forgot-password {
+            color: #2874f0;
+            text-decoration: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            background: #2874f0;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #1765d1;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 25px 0;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .register-text {
+            text-align: center;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .register-text a {
+            color: #2874f0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .success-message {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+
+            <div class="logo">
+                <a href="index.html">Styles</a>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search for products...">
+                <button type="button">🔍</button>
+            </div>
+
+            <div class="header-links">
+                <a href="login.html">Login</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="products.html">Mobiles</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Clothing</a>
+        <a href="products.html">Footwear</a>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section">
+
+        <div class="login-container">
+
+            <div class="login-logo">
+                <h1>Styles</h1>
+                <p>Login to your account</p>
+            </div>
+
+            <div id="errorMessage" class="error-message">
+                Please enter valid login details.
+            </div>
+
+            <div id="successMessage" class="success-message">
+                Login successful! Redirecting...
+            </div>
+
+            <form id="loginForm">
+
+                <!-- Email / Mobile -->
+                <div class="form-group">
+                    <label for="email">Email or Mobile Number</label>
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter email or mobile number"
+                        required
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <!-- Options -->
+                <div class="login-options">
+
+                    <label class="remember">
+                        <input type="checkbox" id="remember">
+                        Remember me
+                    </label>
+
+                    <a href="#" class="forgot-password">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="divider">
+                OR
+            </div>
+
+            <div class="register-text">
+                Don't have an account?
+                <a href="register.html">Create an account</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+
+            <div>
+                <h3>Styles</h3>
+                <p>Your one-stop online shopping destination.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a><br>
+                <a href="products.html">Products</a><br>
+                <a href="cart.html">Cart</a>
+            </div>
+
+            <div>
+                <h3>Customer Service</h3>
+                <p>Help & Support</p>
+                <p>Returns</p>
+                <p>Contact Us</p>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Styles. All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- Login JavaScript -->
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            const errorMessage = document.getElementById("errorMessage");
+            const successMessage = document.getElementById("successMessage");
+
+            errorMessage.style.display = "none";
+            successMessage.style.display = "none";
+
+            if (email === "" || password === "") {
+                errorMessage.textContent = "Please enter email/mobile number and password.";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            /*
+             * Demo login:
+             * Any non-empty email/mobile and password will be accepted.
+             * Real authentication should be connected to a backend.
+             */
+
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("userEmail", email);
+
+            successMessage.style.display = "block";
+
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>
+```
+
+This will work with the **Styles** pages we've already created. Next, the natural file is **`register.html`**, which can save the user's registration details and connect to this login page.

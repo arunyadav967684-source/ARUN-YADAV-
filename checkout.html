@@ -1,0 +1,620 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .checkout-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .checkout-box h2 {
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 90px;
+            resize: vertical;
+        }
+
+        .payment-option {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .payment-option:hover {
+            background: #f7f7f7;
+        }
+
+        .payment-option input {
+            margin-right: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .order-item-info {
+            flex: 1;
+        }
+
+        .order-item-info h4 {
+            margin: 0 0 6px;
+            font-size: 15px;
+        }
+
+        .order-item-info p {
+            margin: 3px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+        }
+
+        .price-row.total {
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+            padding-top: 15px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            background: #ff9900;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .place-order-btn:hover {
+            background: #e68a00;
+        }
+
+        .secure-message {
+            text-align: center;
+            color: #555;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .empty-checkout {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">Styles</a>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button onclick="searchProducts()">🔍</button>
+        </div>
+
+        <div class="header-links">
+            <a href="login.html">Login</a>
+            <a href="orders.html">Orders</a>
+            <a href="cart.html">🛒 Cart <span id="cartCount">0</span></a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="products.html?category=electronics">Electronics</a>
+        <a href="products.html?category=clothing">Clothing</a>
+        <a href="products.html?category=footwear">Footwear</a>
+        <a href="orders.html">My Orders</a>
+    </nav>
+
+    <!-- Checkout -->
+    <main>
+
+        <div id="emptyCheckout" class="empty-checkout" style="display:none;">
+            <h2>Your cart is empty</h2>
+            <p>Please add products to your cart before checkout.</p>
+            <br>
+            <a href="products.html">Continue Shopping</a>
+        </div>
+
+        <div class="checkout-container" id="checkoutContainer">
+
+            <!-- Left Section -->
+            <div>
+
+                <!-- Delivery Address -->
+                <div class="checkout-box">
+                    <h2>📍 Delivery Address</h2>
+
+                    <form id="checkoutForm">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input
+                                type="tel"
+                                id="mobile"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea
+                                id="address"
+                                placeholder="House No, Street, Area"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="Enter city"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <select id="state" required>
+                                <option value="">Select State</option>
+                                <option>Andhra Pradesh</option>
+                                <option>Telangana</option>
+                                <option>Karnataka</option>
+                                <option>Tamil Nadu</option>
+                                <option>Maharashtra</option>
+                                <option>Kerala</option>
+                                <option>Delhi</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pincode">PIN Code</label>
+                            <input
+                                type="text"
+                                id="pincode"
+                                placeholder="Enter 6-digit PIN code"
+                                maxlength="6"
+                                required
+                            >
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Payment -->
+                <div class="checkout-box">
+                    <h2>💳 Payment Method</h2>
+
+                    <label class="payment-option">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Cash on Delivery"
+                            checked
+                        >
+                        <strong>Cash on Delivery</strong>
+                        <br>
+                        <small>Pay when your order is delivered.</small>
+                    </label>
+
+                    <label class="payment-option">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="UPI"
+                        >
+                        <strong>UPI</strong>
+                        <br>
+                        <small>Pay using a UPI app.</small>
+                    </label>
+
+                    <label class="payment-option">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Card"
+                        >
+                        <strong>Credit / Debit Card</strong>
+                        <br>
+                        <small>Demo payment option for this project.</small>
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- Right Section -->
+            <div>
+
+                <div class="checkout-box">
+                    <h2>🛍️ Order Summary</h2>
+
+                    <div id="orderItems"></div>
+
+                    <div class="price-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Discount</span>
+                        <span id="discount">₹0</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Delivery</span>
+                        <span id="delivery">₹0</span>
+                    </div>
+
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span id="total">₹0</span>
+                    </div>
+
+                    <button
+                        class="place-order-btn"
+                        onclick="placeOrder()"
+                    >
+                        Place Order
+                    </button>
+
+                    <p class="secure-message">
+                        🔒 This is a demo checkout for the Styles project.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <h3>Styles</h3>
+            <p>Your one-stop online shopping website.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a><br>
+            <a href="products.html">Products</a><br>
+            <a href="orders.html">Orders</a><br>
+            <a href="cart.html">Cart</a>
+        </div>
+
+        <div>
+            <h3>Customer Service</h3>
+            <p>Help Center</p>
+            <p>Returns</p>
+            <p>Contact Us</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>Facebook | Instagram | Twitter</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function formatPrice(price) {
+            return "₹" + Number(price).toLocaleString("en-IN");
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce(
+                (total, item) => total + Number(item.quantity || 1),
+                0
+            );
+
+            const cartCount = document.getElementById("cartCount");
+
+            if (cartCount) {
+                cartCount.textContent = count;
+            }
+        }
+
+        function loadCheckout() {
+
+            const checkoutContainer =
+                document.getElementById("checkoutContainer");
+
+            const emptyCheckout =
+                document.getElementById("emptyCheckout");
+
+            if (cart.length === 0) {
+                checkoutContainer.style.display = "none";
+                emptyCheckout.style.display = "block";
+                return;
+            }
+
+            checkoutContainer.style.display = "grid";
+            emptyCheckout.style.display = "none";
+
+            const orderItems =
+                document.getElementById("orderItems");
+
+            orderItems.innerHTML = "";
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+
+                const quantity = Number(item.quantity || 1);
+                const price = Number(item.price) || 0;
+                const itemTotal = price * quantity;
+
+                subtotal += itemTotal;
+
+                orderItems.innerHTML += `
+                    <div class="order-item">
+
+                        <img
+                            src="${item.image || 'https://via.placeholder.com/70'}"
+                            alt="${item.name}"
+                        >
+
+                        <div class="order-item-info">
+
+                            <h4>${item.name}</h4>
+
+                            <p>
+                                Quantity: ${quantity}
+                            </p>
+
+                            <p>
+                                ${formatPrice(itemTotal)}
+                            </p>
+
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            // 5% demo discount
+            const discount = Math.round(subtotal * 0.05);
+
+            // Free delivery above ₹500
+            const delivery = subtotal >= 500 ? 0 : 50;
+
+            const total = subtotal - discount + delivery;
+
+            document.getElementById("subtotal").textContent =
+                formatPrice(subtotal);
+
+            document.getElementById("discount").textContent =
+                "-" + formatPrice(discount);
+
+            document.getElementById("delivery").textContent =
+                delivery === 0
+                    ? "FREE"
+                    : formatPrice(delivery);
+
+            document.getElementById("total").textContent =
+                formatPrice(total);
+
+            updateCartCount();
+        }
+
+        function placeOrder() {
+
+            const form =
+                document.getElementById("checkoutForm");
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const mobile =
+                document.getElementById("mobile").value.trim();
+
+            const pincode =
+                document.getElementById("pincode").value.trim();
+
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return;
+            }
+
+            if (!/^[0-9]{6}$/.test(pincode)) {
+                alert("Please enter a valid 6-digit PIN code.");
+                return;
+            }
+
+            const payment =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                ).value;
+
+            let subtotal = cart.reduce(
+                (sum, item) =>
+                    sum +
+                    (Number(item.price) || 0) *
+                    Number(item.quantity || 1),
+                0
+            );
+
+            const discount = Math.round(subtotal * 0.05);
+            const delivery = subtotal >= 500 ? 0 : 50;
+            const total = subtotal - discount + delivery;
+
+            // Create order ID
+            const orderId =
+                "ST" +
+                Date.now().toString().slice(-8);
+
+            const order = {
+                orderId: orderId,
+                date: new Date().toLocaleDateString("en-IN"),
+                items: cart,
+                customer: {
+                    name: document.getElementById("fullName").value,
+                    mobile: mobile,
+                    address: document.getElementById("address").value,
+                    city: document.getElementById("city").value,
+                    state: document.getElementById("state").value,
+                    pincode: pincode
+                },
+                paymentMethod: payment,
+                subtotal: subtotal,
+                discount: discount,
+                delivery: delivery,
+                total: total,
+                status: "Ordered"
+            };
+
+            // Get existing orders
+            let orders =
+                JSON.parse(localStorage.getItem("orders")) || [];
+
+            // Add new order
+            orders.unshift(order);
+
+            // Save orders
+            localStorage.setItem(
+                "orders",
+                JSON.stringify(orders)
+            );
+
+            // Empty cart
+            localStorage.removeItem("cart");
+
+            alert(
+                "🎉 Order placed successfully!\n\n" +
+                "Order ID: " + orderId +
+                "\nTotal: " + formatPrice(total)
+            );
+
+            // Go to orders page
+            window.location.href = "orders.html";
+        }
+
+        function searchProducts() {
+
+            const searchInput =
+                document.getElementById("searchInput");
+
+            const query =
+                searchInput.value.trim();
+
+            if (query !== "") {
+                window.location.href =
+                    "products.html?search=" +
+                    encodeURIComponent(query);
+            }
+        }
+
+        document
+            .getElementById("searchInput")
+            .addEventListener("keypress", function(event) {
+
+                if (event.key === "Enter") {
+                    searchProducts();
+                }
+
+            });
+
+        loadCheckout();
+    </script>
+
+</body>
+</html>
+```

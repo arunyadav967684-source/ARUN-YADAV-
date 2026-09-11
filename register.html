@@ -1,0 +1,545 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .register-section {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+
+        .register-container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .register-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .register-logo h1 {
+            color: #2874f0;
+            font-size: 35px;
+            margin: 0 0 5px;
+        }
+
+        .register-logo p {
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2874f0;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .terms input {
+            margin-top: 3px;
+        }
+
+        .terms a {
+            color: #2874f0;
+            text-decoration: none;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            background: #2874f0;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background: #1765d1;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .login-text a {
+            color: #2874f0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .message {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .error-message {
+            color: #c62828;
+            background: #ffebee;
+        }
+
+        .success-message {
+            color: #2e7d32;
+            background: #e8f5e9;
+        }
+
+        @media (max-width: 600px) {
+            .register-container {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+
+            <div class="logo">
+                <a href="index.html">Styles</a>
+            </div>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for products..."
+                >
+
+                <button type="button" onclick="searchProducts()">
+                    🔍
+                </button>
+            </div>
+
+            <div class="header-links">
+                <a href="login.html">Login</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="products.html">Mobiles</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Clothing</a>
+        <a href="products.html">Footwear</a>
+        <a href="orders.html">My Orders</a>
+
+    </nav>
+
+
+    <!-- Registration Section -->
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <div class="register-logo">
+                <h1>Styles</h1>
+                <p>Create your Styles account</p>
+            </div>
+
+
+            <!-- Messages -->
+            <div
+                id="errorMessage"
+                class="message error-message">
+            </div>
+
+            <div
+                id="successMessage"
+                class="message success-message">
+            </div>
+
+
+            <!-- Registration Form -->
+            <form id="registerForm">
+
+                <!-- Full Name -->
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Mobile -->
+                <div class="form-group">
+
+                    <label for="mobile">
+                        Mobile Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        placeholder="Enter 10-digit mobile number"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Terms -->
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to the
+                        <a href="#">Terms & Conditions</a>
+                        and
+                        <a href="#">Privacy Policy</a>.
+                    </label>
+
+                </div>
+
+
+                <!-- Register Button -->
+                <button
+                    type="submit"
+                    class="register-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <!-- Login Link -->
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login here
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+
+                <h3>Styles</h3>
+
+                <p>
+                    Your one-stop online shopping destination.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a><br>
+                <a href="products.html">Products</a><br>
+                <a href="cart.html">Cart</a><br>
+                <a href="orders.html">My Orders</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Customer Service</h3>
+
+                <p>Help & Support</p>
+                <p>Returns</p>
+                <p>Contact Us</p>
+
+            </div>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 Styles. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        document
+            .getElementById("registerForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value.trim();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const mobile =
+                    document.getElementById("mobile").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword").value;
+
+                const terms =
+                    document.getElementById("terms").checked;
+
+                const errorMessage =
+                    document.getElementById("errorMessage");
+
+                const successMessage =
+                    document.getElementById("successMessage");
+
+
+                errorMessage.style.display = "none";
+                successMessage.style.display = "none";
+
+
+                // Check password
+                if (password !== confirmPassword) {
+
+                    errorMessage.textContent =
+                        "Passwords do not match.";
+
+                    errorMessage.style.display = "block";
+
+                    return;
+                }
+
+
+                // Check mobile number
+                if (!/^[0-9]{10}$/.test(mobile)) {
+
+                    errorMessage.textContent =
+                        "Please enter a valid 10-digit mobile number.";
+
+                    errorMessage.style.display = "block";
+
+                    return;
+                }
+
+
+                // Check terms
+                if (!terms) {
+
+                    errorMessage.textContent =
+                        "Please accept the Terms & Conditions.";
+
+                    errorMessage.style.display = "block";
+
+                    return;
+                }
+
+
+                /*
+                 * Demo registration.
+                 * Data is stored only in the browser's localStorage.
+                 * A real website should use a secure backend/database.
+                 */
+
+                const user = {
+                    name: name,
+                    email: email,
+                    mobile: mobile
+                };
+
+                localStorage.setItem(
+                    "stylesUser",
+                    JSON.stringify(user)
+                );
+
+                localStorage.setItem(
+                    "registeredEmail",
+                    email
+                );
+
+
+                // Show success message
+                successMessage.textContent =
+                    "Account created successfully! Redirecting to login...";
+
+                successMessage.style.display = "block";
+
+
+                // Redirect to login page
+                setTimeout(function() {
+
+                    window.location.href = "login.html";
+
+                }, 1500);
+
+            });
+
+
+        // Search function
+        function searchProducts() {
+
+            const search =
+                document.getElementById("searchInput").value.trim();
+
+            if (search !== "") {
+
+                window.location.href =
+                    "products.html?search=" +
+                    encodeURIComponent(search);
+
+            } else {
+
+                window.location.href =
+                    "products.html";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
+
+This registration page is compatible with your **Styles** `index.html`, `products.html`, `product.html`, `login.html`, and `orders.html`.
+
+Next, I recommend creating **`cart.html`** so your shopping flow becomes **Products → Add to Cart → Cart → Checkout → Orders**.

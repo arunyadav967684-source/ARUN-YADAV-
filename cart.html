@@ -1,0 +1,727 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart - Styles</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .cart-page {
+            background: #f5f5f5;
+            min-height: 75vh;
+            padding: 35px 20px;
+        }
+
+        .cart-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+        }
+
+        .cart-products,
+        .price-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .cart-title {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cart-title h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border: 1px solid #eee;
+            border-radius: 6px;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-details h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .item-details p {
+            color: #666;
+            margin: 6px 0;
+        }
+
+        .item-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quantity-box button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .quantity-box button:hover {
+            background: #eee;
+        }
+
+        .quantity {
+            font-weight: bold;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .remove-btn {
+            margin-top: 12px;
+            border: none;
+            background: none;
+            color: #d32f2f;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .remove-btn:hover {
+            text-decoration: underline;
+        }
+
+        .price-box {
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .price-box h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            color: #555;
+            font-size: 18px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 18px 0;
+            color: #555;
+        }
+
+        .total-row {
+            border-top: 1px solid #ddd;
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .free-delivery {
+            color: #2e7d32;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #ff9f00;
+            color: white;
+            border-radius: 5px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .checkout-btn:hover {
+            background: #e68f00;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: #2874f0;
+            border: 1px solid #2874f0;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-cart-icon {
+            font-size: 60px;
+        }
+
+        .empty-cart h2 {
+            margin: 15px 0 8px;
+        }
+
+        .empty-cart p {
+            color: #777;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #2874f0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cart-count {
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+
+            .price-box {
+                position: static;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .cart-item {
+                flex-direction: column;
+            }
+
+            .cart-item img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+
+            <div class="logo">
+                <a href="index.html">Styles</a>
+            </div>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for products..."
+                >
+
+                <button onclick="searchProducts()">
+                    🔍
+                </button>
+            </div>
+
+            <div class="header-links">
+                <a href="login.html">Login</a>
+                <a href="orders.html">Orders</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="products.html">Mobiles</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Clothing</a>
+        <a href="products.html">Footwear</a>
+        <a href="orders.html">My Orders</a>
+
+    </nav>
+
+
+    <!-- Cart Page -->
+    <main class="cart-page">
+
+        <div class="cart-container">
+
+            <!-- Cart Products -->
+            <section class="cart-products">
+
+                <div class="cart-title">
+                    <h1>
+                        Shopping Cart
+                        (<span id="cartCount">0</span> items)
+                    </h1>
+                </div>
+
+                <div id="cartItems">
+
+                    <!-- Cart products will be inserted here -->
+
+                </div>
+
+                <!-- Empty Cart -->
+                <div
+                    class="empty-cart"
+                    id="emptyCart"
+                    style="display: none;"
+                >
+
+                    <div class="empty-cart-icon">
+                        🛒
+                    </div>
+
+                    <h2>Your Cart is Empty</h2>
+
+                    <p>
+                        Looks like you haven't added anything to your cart yet.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="shop-btn"
+                    >
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- Price Details -->
+            <aside class="price-box">
+
+                <h2>PRICE DETAILS</h2>
+
+                <div class="price-row">
+                    <span>Price</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+
+                <div class="price-row">
+                    <span>Discount</span>
+                    <span id="discount">- ₹0</span>
+                </div>
+
+                <div class="price-row">
+                    <span>Delivery Charges</span>
+                    <span id="delivery">₹0</span>
+                </div>
+
+                <p class="free-delivery" id="deliveryMessage">
+                    Add products to your cart.
+                </p>
+
+                <div class="total-row">
+                    <span>Total Amount</span>
+                    <span id="total">₹0</span>
+                </div>
+
+                <button
+                    class="checkout-btn"
+                    onclick="proceedToCheckout()"
+                >
+                    Proceed to Checkout
+                </button>
+
+                <button
+                    class="continue-btn"
+                    onclick="window.location.href='products.html'"
+                >
+                    Continue Shopping
+                </button>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Styles</h3>
+                <p>
+                    Your one-stop online shopping destination.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a><br>
+                <a href="products.html">Products</a><br>
+                <a href="orders.html">My Orders</a><br>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div>
+                <h3>Customer Service</h3>
+
+                <p>Help & Support</p>
+                <p>Returns</p>
+                <p>Contact Us</p>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Styles. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // Get cart from localStorage
+        let cart = JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+
+        // Display cart
+        function displayCart() {
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            const emptyCart =
+                document.getElementById("emptyCart");
+
+            const cartCount =
+                document.getElementById("cartCount");
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML = "";
+
+                emptyCart.style.display = "block";
+
+                cartCount.textContent = "0";
+
+                updatePriceDetails();
+
+                return;
+            }
+
+            emptyCart.style.display = "none";
+
+            let html = "";
+
+            let totalItems = 0;
+
+            cart.forEach(function(item, index) {
+
+                const quantity =
+                    item.quantity || 1;
+
+                totalItems += quantity;
+
+                html += `
+                    <div class="cart-item">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+                        <div class="item-details">
+
+                            <h2>${item.name}</h2>
+
+                            <p>
+                                ${item.description || "Quality product from Styles"}
+                            </p>
+
+                            <p class="item-price">
+                                ₹${Number(item.price).toLocaleString("en-IN")}
+                            </p>
+
+                            <div class="quantity-box">
+
+                                <button
+                                    onclick="decreaseQuantity(${index})">
+                                    −
+                                </button>
+
+                                <span class="quantity">
+                                    ${quantity}
+                                </span>
+
+                                <button
+                                    onclick="increaseQuantity(${index})">
+                                    +
+                                </button>
+
+                            </div>
+
+                            <button
+                                class="remove-btn"
+                                onclick="removeItem(${index})">
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = html;
+
+            cartCount.textContent = totalItems;
+
+            updatePriceDetails();
+        }
+
+
+        // Increase quantity
+        function increaseQuantity(index) {
+
+            cart[index].quantity =
+                (cart[index].quantity || 1) + 1;
+
+            saveCart();
+
+            displayCart();
+        }
+
+
+        // Decrease quantity
+        function decreaseQuantity(index) {
+
+            if (cart[index].quantity > 1) {
+
+                cart[index].quantity--;
+
+            } else {
+
+                cart.splice(index, 1);
+            }
+
+            saveCart();
+
+            displayCart();
+        }
+
+
+        // Remove item
+        function removeItem(index) {
+
+            const productName =
+                cart[index].name;
+
+            const confirmation =
+                confirm(
+                    "Remove " +
+                    productName +
+                    " from your cart?"
+                );
+
+            if (confirmation) {
+
+                cart.splice(index, 1);
+
+                saveCart();
+
+                displayCart();
+            }
+        }
+
+
+        // Save cart
+        function saveCart() {
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+        }
+
+
+        // Calculate prices
+        function updatePriceDetails() {
+
+            let subtotal = 0;
+
+            cart.forEach(function(item) {
+
+                subtotal +=
+                    Number(item.price) *
+                    (item.quantity || 1);
+
+            });
+
+
+            // Demo discount
+            const discount =
+                Math.round(subtotal * 0.05);
+
+
+            // Free delivery above ₹500
+            let delivery = 0;
+
+            if (subtotal > 0 && subtotal < 500) {
+
+                delivery = 40;
+
+            }
+
+
+            const total =
+                subtotal -
+                discount +
+                delivery;
+
+
+            document.getElementById("subtotal").textContent =
+                "₹" + subtotal.toLocaleString("en-IN");
+
+            document.getElementById("discount").textContent =
+                "- ₹" + discount.toLocaleString("en-IN");
+
+            document.getElementById("delivery").textContent =
+                delivery === 0
+                    ? "FREE"
+                    : "₹" + delivery.toLocaleString("en-IN");
+
+            document.getElementById("total").textContent =
+                "₹" + total.toLocaleString("en-IN");
+
+
+            const deliveryMessage =
+                document.getElementById("deliveryMessage");
+
+
+            if (subtotal === 0) {
+
+                deliveryMessage.textContent =
+                    "Add products to your cart.";
+
+            } else if (subtotal >= 500) {
+
+                deliveryMessage.textContent =
+                    "✓ Free delivery applied!";
+
+            } else {
+
+                deliveryMessage.textContent =
+                    "Add ₹" +
+                    (500 - subtotal).toLocaleString("en-IN") +
+                    " more for free delivery.";
+
+            }
+        }
+
+
+        // Checkout
+        function proceedToCheckout() {
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty. Please add products first."
+                );
+
+                return;
+            }
+
+            window.location.href =
+                "checkout.html";
+        }
+
+
+        // Search
+        function searchProducts() {
+
+            const search =
+                document
+                    .getElementById("searchInput")
+                    .value
+                    .trim();
+
+
+            if (search !== "") {
+
+                window.location.href =
+                    "products.html?search=" +
+                    encodeURIComponent(search);
+
+            } else {
+
+                window.location.href =
+                    "products.html";
+
+            }
+        }
+
+
+        // Load cart when page opens
+        displayCart();
+
+    </script>
+
+</body>
+</html>
+```
+
+**Project flow now:**
+
+`index.html` → `products.html` → **Add to Cart** → `cart.html` → `checkout.html` → `orders.html`
+
+The next important file is **`checkout.html`**, which will handle address, payment method, order total, and placing the order.
